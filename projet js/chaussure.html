@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gestion Produits</title>
+    <link rel="stylesheet" href="crud.css">
+</head>
+<body>
+    <h1>Page Admin - Gestion des Chaussures</h1>
+
+    <form id="addProductForm">
+        <input type="text" id="productName" placeholder="Nom du produit" required>
+        <input type="number" id="productPrice" placeholder="Prix" required>
+        <input type="file" id="productImage" accept="image/*" required>
+        <button type="submit">Ajouter le produit</button>
+    </form>
+
+    <h2>Liste des Produits</h2>
+    <div id="productList"></div>
+    <a href="mod chaussur.html" class="edit-link">Modifier un produit</a>
+
+
+    <script src="chaussures.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier Hoodie</title>
+    <link rel="stylesheet" href="crud.css">
+</head>
+<body>
+    <h1>Modifier Hoodie</h1>
+
+    <input type="text" id="searchName" placeholder="Rechercher par nom">
+    <button id="searchButton">Rechercher</button>
+
+    <form id="modifierHoodieForm" style="display: none;">
+        <input type="text" id="productName" placeholder="Nom du produit" required>
+        <input type="number" id="productPrice" placeholder="Prix" required>
+        <input type="file" id="productImage" accept="image/*">
+        <button type="submit">Modifier le produit</button>
+    </form>
+
+    <script src="mod hoodi.js" defer></script>
+</body>
+</html>

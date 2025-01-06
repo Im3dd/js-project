@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="color: #333;">Explore Our Casquette Collection</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('nk.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff; /* Change text color to white to make it visible on dark backgrounds */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Product Grid */
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        /* Product Card */
+        .product-card {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+            transform: scale(1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Product Card Hover Effect */
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-card p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .product-card .price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #e63946;
+        }
+
+        /* Buy Button */
+        .buy-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Explore Our Casquette Collection</h1>
+    <div id="productList" class="product-list"></div>
+
+    <script>
+        // Récupérer les produits du localStorage
+        let casquette = JSON.parse(localStorage.getItem("casquette")) || [];
+
+        // Fonction pour afficher les produits
+        function afficherProduits() {
+            const productList = document.getElementById("productList");
+            productList.innerHTML = ""; // Effacer l'ancien contenu
+
+            casquette.forEach((produit) => {
+                const div = document.createElement("div");
+                div.classList.add("product-card");
+                div.innerHTML = `
+                    <img src="${produit.image}" alt="${produit.name}">
+                    <p><strong>${produit.name}</strong></p>
+                    <p class="price">${produit.price} €</p>
+                    <button class="buy-btn">Buy</button>
+                `;
+                productList.appendChild(div);
+            });
+        }
+
+        // Initialiser l'affichage
+        afficherProduits();
+    </script>
+</body>
+</html>
